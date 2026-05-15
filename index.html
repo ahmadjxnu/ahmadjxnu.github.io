@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Ahmad Hassan | Cybersecurity Researcher</title>
+<meta name="description" content="Ahmad Hassan – Ph.D. Cybersecurity researcher at University of Padua. SPRITZ Security Group."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#020c07;
+  --bg2:#04120a;
+  --bg3:#071a0f;
+  --green:#00ff88;
+  --green2:#00cc6a;
+  --green3:#009e52;
+  --green-dim:#00ff8822;
+  --green-dim2:#00ff8811;
+  --cyan:#00e5ff;
+  --amber:#ffb700;
+  --red:#ff3c5f;
+  --text:#c8ffd8;
+  --text2:#7ab892;
+  --text3:#3d6b4d;
+  --border:#0d3320;
+  --border2:#1a5c36;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Space Grotesk',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,136,0.015) 2px,rgba(0,255,136,0.015) 4px);
+  pointer-events:none;
+  z-index:9999;
+}
+#matrix-canvas{
+  position:fixed;top:0;left:0;
+  width:100%;height:100%;
+  opacity:0.07;z-index:0;
+  pointer-events:none;
+}
+nav{
+  position:fixed;top:0;left:0;right:0;
+  z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 3rem;
+  background:rgba(2,12,7,0.92);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(10px);
+}
+.nav-brand{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.85rem;color:var(--green);
+  text-decoration:none;letter-spacing:0.05em;
+}
+.nav-brand span{color:var(--text2);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.7rem;letter-spacing:0.1em;
+  color:var(--text2);text-decoration:none;
+  transition:color 0.2s;text-transform:uppercase;
+}
+.nav-links a:hover{color:var(--green);}
+.nav-status{
+  display:flex;align-items:center;gap:0.5rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;color:var(--text3);
+}
+.status-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,255,136,0.4)}
+  50%{opacity:0.7;box-shadow:0 0 0 6px transparent}
+}
+#home{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:8rem 3rem 4rem;
+  position:relative;z-index:1;
+}
+.hero-inner{max-width:1000px;width:100%;}
+.hero-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;color:var(--green);
+  letter-spacing:0.2em;text-transform:uppercase;
+  margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:0.8rem;
+}
+.hero-eyebrow::before{content:'';display:inline-block;width:40px;height:1px;background:var(--green);}
+.hero-name{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(3.5rem,8vw,7rem);
+  font-weight:800;line-height:0.95;
+  letter-spacing:-0.02em;
+  margin-bottom:0.5rem;color:#fff;
+}
+.hero-name .highlight{
+  color:transparent;
+  -webkit-text-stroke:2px var(--green);
+}
+.hero-name .glitch{position:relative;display:inline-block;}
+.hero-name .glitch::before,.hero-name .glitch::after{
+  content:attr(data-text);
+  position:absolute;top:0;left:0;
+  width:100%;height:100%;
+}
+.hero-name .glitch::before{
+  color:var(--cyan);
+  clip-path:polygon(0 0,100% 0,100% 35%,0 35%);
+  transform:translateX(-3px);
+  animation:glitch1 4s infinite;
+}
+.hero-name .glitch::after{
+  color:var(--red);
+  clip-path:polygon(0 65%,100% 65%,100% 100%,0 100%);
+  transform:translateX(3px);
+  animation:glitch2 4s infinite;
+}
+@keyframes glitch1{0%,90%,100%{transform:translateX(0)}92%{transform:translateX(-4px)}94%{transform:translateX(2px)}}
+@keyframes glitch2{0%,90%,100%{transform:translateX(0)}92%{transform:translateX(4px)}94%{transform:translateX(-2px)}}
+.hero-title{
+  font-family:'JetBrains Mono',monospace;
+  font-size:1rem;color:var(--green);
+  margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.hero-title::before{content:'>';color:var(--text3);}
+.hero-desc{
+  max-width:56ch;color:var(--text2);
+  font-size:1rem;margin-bottom:2.5rem;line-height:1.8;
+}
+.hero-badges{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:3rem;}
+.badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.1em;
+  padding:0.35rem 0.9rem;
+  border:1px solid var(--border2);
+  color:var(--text2);text-transform:uppercase;
+  position:relative;overflow:hidden;
+  transition:all 0.3s;cursor:default;
+}
+.badge::before{
+  content:'';position:absolute;inset:0;
+  background:var(--green-dim2);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.3s;
+}
+.badge:hover{color:var(--green);border-color:var(--green);}
+.badge:hover::before{transform:scaleX(1);}
+.badge span{position:relative;z-index:1;}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;letter-spacing:0.1em;
+  text-transform:uppercase;padding:0.75rem 2rem;
+  background:var(--green);color:var(--bg);
+  border:none;cursor:pointer;text-decoration:none;
+  transition:all 0.2s;
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-weight:600;
+}
+.btn-primary:hover{background:var(--green2);}
+.btn-outline{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;letter-spacing:0.1em;
+  text-transform:uppercase;padding:0.75rem 2rem;
+  background:transparent;color:var(--green);
+  border:1px solid var(--green);
+  cursor:pointer;text-decoration:none;
+  transition:all 0.2s;
+  display:inline-flex;align-items:center;gap:0.5rem;
+}
+.btn-outline:hover{background:var(--green-dim);}
+.terminal{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  max-width:560px;margin-top:3rem;
+}
+.terminal-bar{
+  display:flex;align-items:center;gap:0.5rem;
+  padding:0.6rem 1rem;
+  border-bottom:1px solid var(--border);
+  background:var(--bg3);
+}
+.t-dot{width:12px;height:12px;border-radius:50%;}
+.t-dot.r{background:#ff5f56;}
+.t-dot.y{background:#ffbd2e;}
+.t-dot.g{background:#27c93f;}
+.terminal-title{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;color:var(--text3);
+  margin:0 auto;
+}
+.terminal-body{
+  padding:1.2rem 1.4rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.78rem;line-height:1.9;
+}
+.t-line{color:var(--text2);}
+.t-cmd{color:var(--green);}
+.t-comment{color:var(--text3);}
+.t-val{color:var(--cyan);}
+.t-hi{color:var(--amber);}
+.cursor{
+  display:inline-block;width:8px;height:14px;
+  background:var(--green);vertical-align:-2px;
+  animation:blink 1s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+section{
+  padding:6rem 3rem;
+  position:relative;z-index:1;
+}
+section:nth-child(even){background:rgba(4,18,10,0.6);}
+.section-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;color:var(--text3);
+  letter-spacing:0.2em;text-transform:uppercase;
+  margin-bottom:0.6rem;
+  display:flex;align-items:center;gap:0.8rem;
+}
+.section-label::before{content:'//';color:var(--green3);}
+.section-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:700;color:#fff;
+  margin-bottom:3rem;position:relative;
+  display:inline-block;
+}
+.section-title::after{
+  content:'';position:absolute;
+  bottom:-8px;left:0;
+  width:40px;height:2px;
+  background:var(--green);
+}
+.timeline{position:relative;padding-left:2rem;}
+.timeline::before{
+  content:'';position:absolute;
+  left:0;top:0;bottom:0;
+  width:1px;background:var(--border);
+}
+.tl-item{
+  position:relative;margin-bottom:2.5rem;
+  padding-left:1.5rem;
+  opacity:0;transform:translateX(-20px);
+  transition:opacity 0.6s ease,transform 0.6s ease;
+}
+.tl-item.visible{opacity:1;transform:translateX(0);}
+.tl-dot{
+  position:absolute;left:-2.1rem;top:0.4rem;
+  width:12px;height:12px;
+  border:2px solid var(--green);
+  background:var(--bg);border-radius:50%;
+}
+.tl-dot.active{background:var(--green);box-shadow:0 0 10px var(--green);}
+.tl-year{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.68rem;color:var(--green);
+  letter-spacing:0.1em;margin-bottom:0.3rem;
+}
+.tl-degree{font-size:1.1rem;font-weight:500;color:#fff;margin-bottom:0.2rem;}
+.tl-place{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);}
+.tl-place a{color:var(--cyan);text-decoration:none;}
+.tl-place a:hover{text-decoration:underline;}
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.research-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  padding:1.8rem;
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.6s ease,transform 0.6s ease,border-color 0.3s;
+}
+.research-card.visible{opacity:1;transform:translateY(0);}
+.research-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:var(--green);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s;
+}
+.research-card:hover{border-color:var(--border2);}
+.research-card:hover::before{transform:scaleX(1);}
+.rc-icon{font-size:2rem;margin-bottom:1rem;}
+.rc-title{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;color:var(--green);
+  letter-spacing:0.1em;text-transform:uppercase;
+  margin-bottom:1rem;
+}
+.rc-items{list-style:none;}
+.rc-items li{
+  padding:0.4rem 0;
+  border-bottom:1px solid var(--border);
+  font-size:0.9rem;color:var(--text2);
+  display:flex;align-items:center;gap:0.6rem;
+}
+.rc-items li::before{content:'&#9656;';color:var(--green3);font-size:0.7rem;}
+.rc-items li:last-child{border-bottom:none;}
+.skill-bars{display:grid;gap:1rem;}
+.skill-row{cursor:default;}
+.skill-header{display:flex;justify-content:space-between;margin-bottom:0.4rem;}
+.skill-name{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);}
+.skill-pct{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--green);}
+.skill-track{height:4px;background:var(--border);position:relative;overflow:hidden;}
+.skill-fill{height:100%;background:var(--green);width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1);}
+.skill-fill.cyan{background:var(--cyan);}
+.skill-fill.amber{background:var(--amber);}
+.awards-grid{display:grid;gap:1.2rem;}
+.award-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  padding:1.4rem 1.8rem;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;gap:1.5rem;
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateX(-20px);
+  transition:opacity 0.6s ease,transform 0.6s ease,border-color 0.3s,background 0.3s;
+}
+.award-card.visible{opacity:1;transform:translateX(0);}
+.award-card:hover{border-color:var(--border2);background:var(--bg3);}
+.award-card::after{
+  content:'';position:absolute;
+  left:0;top:0;bottom:0;width:3px;
+  background:var(--green);
+  opacity:0;transition:opacity 0.3s;
+}
+.award-card:hover::after{opacity:1;}
+.award-icon{font-size:1.6rem;}
+.award-title{font-size:0.95rem;font-weight:500;color:#fff;margin-bottom:0.2rem;}
+.award-body{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--text2);}
+.award-body a{color:var(--cyan);text-decoration:none;}
+.award-year{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.72rem;color:var(--green);
+  white-space:nowrap;text-align:right;
+}
+.pub-list{display:grid;gap:1.5rem;}
+.pub-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  padding:1.8rem;
+  transition:border-color 0.3s;
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.6s ease,transform 0.6s ease,border-color 0.3s;
+  position:relative;
+}
+.pub-card.visible{opacity:1;transform:translateY(0);}
+.pub-card:hover{border-color:var(--border2);}
+.pub-year-badge{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;
+  color:var(--bg);background:var(--green);
+  padding:0.15rem 0.6rem;
+  margin-bottom:0.8rem;font-weight:700;
+}
+.pub-title{font-size:1rem;font-weight:500;color:#fff;margin-bottom:0.5rem;line-height:1.4;}
+.pub-venue{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text2);margin-bottom:0.8rem;}
+.pub-link{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.68rem;letter-spacing:0.05em;
+  color:var(--green);text-decoration:none;
+  display:inline-flex;align-items:center;gap:0.4rem;
+  border-bottom:1px solid var(--green3);padding-bottom:1px;
+}
+.pub-link:hover{color:var(--cyan);border-color:var(--cyan);}
+.ext-links{display:flex;gap:1rem;flex-wrap:wrap;}
+.ext-link{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.55rem 1.3rem;
+  border:1px solid var(--border2);
+  color:var(--text2);text-decoration:none;
+  transition:all 0.2s;
+  display:inline-flex;align-items:center;gap:0.5rem;
+}
+.ext-link:hover{border-color:var(--green);color:var(--green);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.contact-block{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  padding:2rem;
+}
+.cb-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--green);
+  margin-bottom:1rem;
+}
+.cb-content{font-size:0.9rem;color:var(--text2);line-height:1.8;}
+.cb-content a{color:var(--cyan);text-decoration:none;}
+.cb-content a:hover{text-decoration:underline;}
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1.5rem;}
+.social-btn{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.68rem;letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:0.65rem 1rem;
+  border:1px solid var(--border2);
+  color:var(--text2);text-decoration:none;
+  text-align:center;transition:all 0.2s;
+}
+.social-btn:hover{border-color:var(--green);color:var(--green);background:var(--green-dim);}
+footer{
+  padding:2rem 3rem;
+  border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;color:var(--text3);
+  position:relative;z-index:1;
+}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:768px){
+  nav{padding:1rem 1.2rem;}
+  .nav-links{gap:1rem;}
+  .nav-status{display:none;}
+  #home{padding:6rem 1.5rem 3rem;}
+  section{padding:4rem 1.5rem;}
+  .research-grid,.contact-grid{grid-template-columns:1fr;}
+  .award-card{grid-template-columns:auto 1fr;gap:1rem;}
+  .award-year{display:none;}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="matrix-canvas"></canvas>
+
+<nav>
+  <a href="#home" class="nav-brand">AH<span>@SPRITZ</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">~/home</a></li>
+    <li><a href="#education">~/edu</a></li>
+    <li><a href="#research">~/research</a></li>
+    <li><a href="#awards">~/awards</a></li>
+    <li><a href="#publications">~/papers</a></li>
+    <li><a href="#contact">~/contact</a></li>
+  </ul>
+  <div class="nav-status">
+    <span class="status-dot"></span>
+    <span>ONLINE &middot; PADUA, IT</span>
+  </div>
+</nav>
+
+<section id="home">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Ph.D. Researcher &mdash; Cybersecurity</p>
+    <h1 class="hero-name">
+      <span class="glitch" data-text="AHMAD">AHMAD</span><br/>
+      <span class="highlight">HASSAN</span>
+    </h1>
+    <p class="hero-title">Securing Vehicular Networks &amp; Autonomous Systems</p>
+    <p class="hero-desc">
+      Ph.D. in Brain, Mind &amp; Computer Science at the University of Padua.
+      Researcher at the SPRITZ Security &amp; Privacy Group &mdash; investigating
+      vehicular security, UAV systems, and adversarial machine learning.
+    </p>
+    <div class="hero-badges">
+      <div class="badge"><span>Vehicular Security</span></div>
+      <div class="badge"><span>UAV Security</span></div>
+      <div class="badge"><span>V2V Communication</span></div>
+      <div class="badge"><span>ML for Security</span></div>
+      <div class="badge"><span>Threat Detection</span></div>
+      <div class="badge"><span>Network Security</span></div>
+      <div class="badge"><span>Computer Vision</span></div>
+      <div class="badge"><span>Deep Learning</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#publications" class="btn-primary">&#x2192; View Publications</a>
+      <a href="#contact" class="btn-outline">&#x25BA; Contact Me</a>
+    </div>
+    <div class="terminal reveal" style="transition-delay:0.3s">
+      <div class="terminal-bar">
+        <span class="t-dot r"></span>
+        <span class="t-dot y"></span>
+        <span class="t-dot g"></span>
+        <span class="terminal-title">ahmad@spritz:~$</span>
+      </div>
+      <div class="terminal-body">
+        <div class="t-line"><span class="t-comment">## Ahmad Hassan &mdash; Research Profile</span></div>
+        <div class="t-line">$ <span class="t-cmd">whoami</span></div>
+        <div class="t-line">&nbsp;&nbsp;Ahmad Hassan &mdash; PhD Candidate &amp; MSCA Fellow</div>
+        <div class="t-line">$ <span class="t-cmd">cat affiliation.txt</span></div>
+        <div class="t-line">&nbsp;&nbsp;University of Padua, Italy</div>
+        <div class="t-line">&nbsp;&nbsp;SPRITZ Security &amp; Privacy Research Group</div>
+        <div class="t-line">&nbsp;&nbsp;Supervisor: <span class="t-val">Prof. Mauro Conti</span></div>
+        <div class="t-line">$ <span class="t-cmd">cat fellowship.txt</span></div>
+        <div class="t-line">&nbsp;&nbsp;<span class="t-hi">&#9733; Marie Sk&#322;odowska-Curie Actions Fellow (2022&ndash;2025)</span></div>
+        <div class="t-line">$ <span class="t-cmd">./status --check</span></div>
+        <div class="t-line">&nbsp;&nbsp;Status: <span class="t-val">Active Researcher</span> <span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-label reveal">education</div>
+  <h2 class="section-title reveal">"O Lord, increase me in knowledge."</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot active"></div>
+      <div class="tl-year">2022 &mdash; 2025</div>
+      <div class="tl-degree">Ph.D. in Brain, Mind &amp; Computer Science</div>
+      <div class="tl-place">
+        <a href="https://uniphd.eu/portfolio_page/computer-science-and-innovation-for-societal-challenges/" target="_blank" rel="noopener">University of Padua</a>
+        &nbsp;&middot;&nbsp;Italy &nbsp;&middot;&nbsp; Cybersecurity domain &middot; DPG, Mathematics, HIT Centre
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Aug &mdash; Nov 2022</div>
+      <div class="tl-degree">Research Assistant</div>
+      <div class="tl-place">
+        <a href="https://english.siat.ac.cn/" target="_blank" rel="noopener">Chinese Academy of Sciences (SIAT-CAS)</a>
+        &nbsp;&middot;&nbsp;China
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2019 &mdash; 2022</div>
+      <div class="tl-degree">M.Sc. Computer Science &amp; Technology</div>
+      <div class="tl-place">
+        <a href="https://www.jxnu.edu.cn/" target="_blank" rel="noopener">Jiangxi Normal University</a>
+        &nbsp;&middot;&nbsp;China
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2018 &mdash; 2019</div>
+      <div class="tl-degree">Chinese Language &mdash; &#27721;&#35821;&#27700;&#24179;&#32771;&#35797;</div>
+      <div class="tl-place">Jiangxi Normal University &middot; China</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2013 &mdash; 2017</div>
+      <div class="tl-degree">B.Sc. Information Technology</div>
+      <div class="tl-place">
+        <a href="http://web.uaf.edu.pk/" target="_blank" rel="noopener">University of Agriculture Faisalabad</a>
+        &nbsp;&middot;&nbsp;Pakistan
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="section-label reveal">research_interests</div>
+  <h2 class="section-title reveal">Areas of Focus</h2>
+  <div class="research-grid">
+    <div class="research-card">
+      <div class="rc-icon">&#x1F6E1;&#xFE0F;</div>
+      <div class="rc-title">// Cybersecurity</div>
+      <ul class="rc-items">
+        <li>Vehicular Security</li>
+        <li>UAVs / Drone Security</li>
+        <li>Network Security</li>
+        <li>Vehicular Telematics</li>
+        <li>V2V Communication Security &amp; Privacy</li>
+        <li>Threat Identification</li>
+        <li>ML for Security &amp; Security for ML</li>
+      </ul>
+    </div>
+    <div class="research-card">
+      <div class="rc-icon">&#x1F916;</div>
+      <div class="rc-title">// AI &amp; Vision</div>
+      <ul class="rc-items">
+        <li>Computer Vision</li>
+        <li>Signal Processing</li>
+        <li>AI / ML / Deep Learning</li>
+        <li>Virtual &amp; Augmented Reality</li>
+        <li>Image Processing &amp; Matting</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <div class="section-label reveal" style="margin-bottom:1.5rem">expertise_levels</div>
+    <div class="skill-bars" id="skill-bars">
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Vehicular &amp; IoT Security</span><span class="skill-pct">92%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-target="92"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Machine Learning / Deep Learning</span><span class="skill-pct">88%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-target="88"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Network Security &amp; Protocols</span><span class="skill-pct">85%</span></div>
+        <div class="skill-track"><div class="skill-fill" data-target="85"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Computer Vision &amp; Signal Processing</span><span class="skill-pct" style="color:var(--cyan)">80%</span></div>
+        <div class="skill-track"><div class="skill-fill cyan" data-target="80"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Threat Modelling &amp; Analysis</span><span class="skill-pct" style="color:var(--amber)">75%</span></div>
+        <div class="skill-track"><div class="skill-fill amber" data-target="75"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="section-label reveal">scholarships_awards</div>
+  <h2 class="section-title reveal">Recognitions</h2>
+  <div class="awards-grid">
+    <div class="award-card">
+      <div class="award-icon">&#x1F1EA;&#x1F1FA;</div>
+      <div>
+        <div class="award-title">Marie Sk&#322;odowska-Curie Actions Fellowship</div>
+        <div class="award-body">
+          <a href="https://marie-sklodowska-curie-actions.ec.europa.eu/" target="_blank" rel="noopener">European Commission</a>
+          &nbsp;&middot;&nbsp;University of Padua, Italy
+        </div>
+      </div>
+      <div class="award-year">2022&ndash;2025</div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">&#x1F52C;</div>
+      <div>
+        <div class="award-title">ANSO Fellowship</div>
+        <div class="award-body">
+          <a href="http://www.anso.org.cn/" target="_blank" rel="noopener">Alliance of International Science Organizations</a>
+          &nbsp;&middot;&nbsp;CAS, China
+        </div>
+      </div>
+      <div class="award-year">2022</div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">&#x1F948;</div>
+      <div>
+        <div class="award-title">Silver &amp; Bronze &mdash; China Internet+ Innovation &amp; Entrepreneurship Competition (6th)</div>
+        <div class="award-body">
+          <a href="https://cy.ncss.cn/en/" target="_blank" rel="noopener">Ministry of Education, China</a>
+        </div>
+      </div>
+      <div class="award-year">2020</div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">&#x1F1E8;&#x1F1F3;</div>
+      <div>
+        <div class="award-title">Chinese Government Scholarship</div>
+        <div class="award-body">
+          <a href="https://www.csc.edu.cn/" target="_blank" rel="noopener">China Scholarship Council</a>
+          &nbsp;&middot;&nbsp;Jiangxi Normal University
+        </div>
+      </div>
+      <div class="award-year">2019&ndash;2022</div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">&#x1F393;</div>
+      <div>
+        <div class="award-title">HEC Scholarship</div>
+        <div class="award-body">
+          <a href="https://www.hec.gov.pk/" target="_blank" rel="noopener">Higher Education Commission</a>
+          &nbsp;&middot;&nbsp;UAF, Pakistan
+        </div>
+      </div>
+      <div class="award-year">2016&ndash;2017</div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="section-label reveal">publications</div>
+  <h2 class="section-title reveal">Research Papers</h2>
+  <div class="pub-list">
+    <div class="pub-card">
+      <span class="pub-year-badge">2022</span>
+      <p class="pub-title">LSTM-based Eye-Movement Trajectory Analysis for Reading Behavior Classification</p>
+      <p class="pub-venue">Ahmad Hassan, Wei Fan, &hellip;, Hanxi Li &middot; ISPP 2022 International Conference on Image, Signal Processing and Pattern Recognition &middot; Guilin, China</p>
+      <a class="pub-link" href="https://doi.org/10.1117/12.2636952" target="_blank" rel="noopener">&#x25B6; DOI: 10.1117/12.2636952</a>
+    </div>
+    <div class="pub-card">
+      <span class="pub-year-badge">2021</span>
+      <p class="pub-title">Data-Driven Soft Sensor Model Based on Deep Learning for Quality Prediction of Industrial Processes</p>
+      <p class="pub-venue">Xianglin Zhu, Khalil Ur Rehman, &hellip;, Ahmad Hassan &middot; SN Computer Science, Springer 2021</p>
+      <a class="pub-link" href="https://link.springer.com/article/10.1007/s42979-020-00440-4" target="_blank" rel="noopener">&#x25B6; Springer Link</a>
+    </div>
+  </div>
+  <div class="ext-links reveal" style="margin-top:2.5rem;">
+    <a class="ext-link" href="https://scholar.google.com/citations?user=QNmDe5UAAAAJ&hl=en" target="_blank" rel="noopener">&#x1F50D; Google Scholar</a>
+    <a class="ext-link" href="https://orcid.org/0000-0001-5891-9261" target="_blank" rel="noopener">&#x25C6; ORCID</a>
+    <a class="ext-link" href="https://spritz.math.unipd.it/team.html" target="_blank" rel="noopener">&#x25B6; SPRITZ Group</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label reveal">contact</div>
+  <h2 class="section-title reveal">Get in Touch</h2>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-block reveal">
+        <div class="cb-label">// email</div>
+        <div class="cb-content">
+          <a href="mailto:ahmad.hassan@unipd.it">ahmad.hassan@unipd.it</a><br/>
+          <a href="mailto:ahmad.hassan@math.unipd.it">ahmad.hassan@math.unipd.it</a>
+        </div>
+      </div>
+      <div class="contact-block reveal" style="margin-top:1.2rem;">
+        <div class="cb-label">// office (expired)</div>
+        <div class="cb-content">
+          7D4, Dept. of Mathematics "Tullio Levi-Civita"<br/>
+          Via Trieste 63, 35121 Padova PD, Italy
+        </div>
+      </div>
+      <div class="contact-block reveal" style="margin-top:1.2rem;">
+        <div class="cb-label">// social_links</div>
+        <div class="social-grid">
+          <a class="social-btn" href="https://www.linkedin.com/in/ahmad-tbz/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="social-btn" href="https://twitter.com/ahmadtbz" target="_blank" rel="noopener">Twitter/X</a>
+          <a class="social-btn" href="https://scholar.google.com/citations?hl=en&user=QNmDe5UAAAAJ" target="_blank" rel="noopener">Scholar</a>
+          <a class="social-btn" href="https://orcid.org/0000-0001-5891-9261" target="_blank" rel="noopener">ORCID</a>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div style="border:1px solid var(--border);overflow:hidden;">
+        <iframe
+          title="Dept. of Mathematics, Padova"
+          src="https://maps.google.com/maps?q=Via+Trieste,+63,+35131+Padova+PD,+Italy&z=15&output=embed"
+          width="100%" height="360"
+          style="display:block;filter:invert(0.85) hue-rotate(135deg) saturate(0.8);"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div style="padding:1rem;background:var(--bg2);border:1px solid var(--border);border-top:none;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--text3);">
+        &#x25CF; University of Padua &middot; SPRITZ Security Research Group
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>&#x24D0; Ahmad Hassan &mdash; Ph.D. Researcher, University of Padua</span>
+  <span>"O Lord, I ask Thee for Beneficial Knowledge."</span>
+  <span>Hosted on GitHub Pages</span>
+</footer>
+
+<script>
+(function(){
+  const canvas=document.getElementById('matrix-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H,cols,drops;
+  const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>{}[]#@$%01110100';
+  function init(){
+    W=canvas.width=window.innerWidth;
+    H=canvas.height=window.innerHeight;
+    cols=Math.floor(W/18);
+    drops=Array(cols).fill(1);
+  }
+  init();
+  window.addEventListener('resize',init);
+  function draw(){
+    ctx.fillStyle='rgba(2,12,7,0.05)';
+    ctx.fillRect(0,0,W,H);
+    ctx.font='14px JetBrains Mono,monospace';
+    drops.forEach((y,i)=>{
+      const ch=chars[Math.floor(Math.random()*chars.length)];
+      ctx.fillStyle=y*18<H*0.2?'#00ff88':'#004422';
+      ctx.fillText(ch,i*18,y*18);
+      if(y*18>H&&Math.random()>0.975)drops[i]=0;
+      drops[i]++;
+    });
+  }
+  setInterval(draw,55);
+})();
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*80);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal,.tl-item,.research-card,.award-card,.pub-card').forEach(el=>obs.observe(el));
+
+const skillObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.skill-fill').forEach(bar=>{
+        setTimeout(()=>{bar.style.width=bar.dataset.target+'%';},200);
+      });
+      skillObs.disconnect();
+    }
+  });
+},{threshold:0.3});
+const sb=document.getElementById('skill-bars');
+if(sb)skillObs.observe(sb);
+</script>
+</body>
+</html>
