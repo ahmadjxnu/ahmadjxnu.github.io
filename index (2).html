@@ -25,7 +25,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
     linear-gradient(90deg,rgba(0,245,160,.028)1px,transparent 1px);
   background-size:52px 52px;}
 #mc{position:fixed;top:0;left:0;width:100%;height:100%;opacity:.13;z-index:0;pointer-events:none;}
-
+ 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nh);
   background:rgba(5,8,15,.93);border-bottom:1px solid var(--border);
@@ -67,7 +67,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nh);
 .drw a::before{content:'//';color:var(--green3);font-size:.6rem;}
 .drw a:hover{color:var(--green);}
 .drw a:last-child{border-bottom:none;}
-
+ 
 /* ── LAYOUT ── */
 .wrap{max-width:1240px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
 section{padding:6rem 0;position:relative;z-index:1;}
@@ -77,7 +77,7 @@ section+section{border-top:1px solid var(--border);}
 .sl::before{content:'';width:22px;height:1px;background:var(--green);}
 .st{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);
   letter-spacing:.04em;color:#fff;margin-bottom:2.8rem;line-height:1.05;}
-
+ 
 /* ── HERO ── */
 #home{
   min-height:100vh;
@@ -110,7 +110,7 @@ section+section{border-top:1px solid var(--border);}
 .bsolid:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,245,160,.24);}
 .bghost{background:transparent;color:var(--green);border:1px solid var(--b2);}
 .bghost:hover{background:var(--gg);border-color:var(--green);transform:translateY(-2px);}
-
+ 
 /* photo */
 .hphoto{position:relative;flex-shrink:0;}
 .hframe{
@@ -161,7 +161,7 @@ section+section{border-top:1px solid var(--border);}
   white-space:nowrap;background:var(--bg2);border:1px solid var(--b2);
   padding:.32rem .95rem;border-radius:999px;color:var(--green);display:flex;align-items:center;gap:.42rem;
   box-shadow:0 0 12px rgba(0,245,160,.2);}
-
+ 
 /* terminal */
 .term{margin-top:2.2rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;max-width:510px;}
 .tbar{display:flex;align-items:center;gap:.42rem;padding:.58rem 1rem;background:var(--bg3);border-bottom:1px solid var(--border);}
@@ -172,7 +172,7 @@ section+section{border-top:1px solid var(--border);}
 .tc2{color:var(--text3);}.tk{color:var(--green);}.tv{color:var(--cyan);}.ta{color:var(--amber);}
 .cur{display:inline-block;width:7px;height:13px;background:var(--green);vertical-align:-2px;animation:bl 1s step-end infinite;}
 @keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
-
+ 
 /* ── TIMELINE ── */
 .tline{display:grid;gap:0;}
 .trow{display:grid;grid-template-columns:108px 1px 1fr;gap:0 1.4rem;align-items:stretch;
@@ -191,7 +191,7 @@ section+section{border-top:1px solid var(--border);}
 .tplace{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--text2);line-height:1.5;}
 .tplace a{color:var(--cyan);text-decoration:none;}
 .tplace a:hover{text-decoration:underline;}
-
+ 
 /* ── RESEARCH CARDS ── */
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.7rem;
@@ -208,7 +208,7 @@ section+section{border-top:1px solid var(--border);}
 .clist li:hover{color:var(--text);}
 .clist li:last-child{border-bottom:none;}
 .clist li::before{content:'\25B8';color:var(--green3);font-size:.58rem;flex-shrink:0;}
-
+ 
 /* ── AWARDS ── */
 .awlist{display:flex;flex-direction:column;gap:.85rem;}
 .aw{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);
@@ -225,7 +225,7 @@ section+section{border-top:1px solid var(--border);}
 .aws a:hover{text-decoration:underline;}
 .awy{font-family:'IBM Plex Mono',monospace;font-size:.64rem;color:var(--green);white-space:nowrap;
   flex-shrink:0;background:var(--gg);border:1px solid var(--b2);padding:.2rem .6rem;border-radius:6px;}
-
+ 
 /* ── PUBLICATIONS ── */
 .publist{display:flex;flex-direction:column;gap:1.1rem;}
 .pub{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem;
@@ -246,7 +246,7 @@ section+section{border-top:1px solid var(--border);}
   padding:.48rem 1rem;border-radius:8px;border:1px solid var(--border);color:var(--text2);
   text-decoration:none;background:var(--bg2);transition:all .22s;display:inline-flex;align-items:center;gap:.38rem;}
 .ebtn:hover{border-color:var(--green);color:var(--green);background:var(--gg);}
-
+ 
 /* ── WORLD MAP ── */
 #global{background:rgba(8,13,24,.6);}
 .mapwrap{position:relative;width:100%;background:#030d08;border:1px solid var(--border);
@@ -263,7 +263,7 @@ path.visited:hover{fill:#006830;}
 .mtt.show{opacity:1;}
 .mtt .mname{color:var(--green);font-size:.74rem;font-weight:600;margin-bottom:.25rem;}
 .mtt .mpurp{color:var(--text2);font-size:.64rem;}
-
+ 
 /* ── CONTACT FORM ── */
 .colgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
 .formcard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:2rem;}
@@ -312,16 +312,16 @@ path.visited:hover{fill:#006830;}
 .mapcard-ft{padding:.65rem 1.05rem;border-top:1px solid var(--border);font-family:'IBM Plex Mono',monospace;
   font-size:.6rem;color:var(--text3);display:flex;align-items:center;gap:.45rem;}
 .mapcard-ft::before{content:'●';color:var(--green);font-size:.48rem;}
-
+ 
 /* ── FOOTER ── */
 footer{border-top:1px solid var(--border);padding:2rem;text-align:center;
   font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--text3);line-height:2.2;position:relative;z-index:1;}
 footer strong{color:var(--green);}
-
+ 
 /* ── REVEAL ── */
 .rev{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
 .rev.vis{opacity:1;transform:translateY(0);}
-
+ 
 /* ── RESPONSIVE ── */
 @media(max-width:1040px){.npill{display:none;}.hgrid{gap:3rem;}.hframe{width:235px;height:235px;}}
 @media(max-width:820px){
@@ -349,7 +349,7 @@ footer strong{color:var(--green);}
 </head>
 <body>
 <canvas id="mc"></canvas>
-
+ 
 <!-- NAV -->
 <nav>
   <div class="ni">
@@ -376,7 +376,7 @@ footer strong{color:var(--green);}
   <a href="#global" onclick="cD()">Global Footprint</a>
   <a href="#contact" onclick="cD()">Contact</a>
 </div>
-
+ 
 <!-- HERO -->
 <section id="home">
   <div class="wrap">
@@ -425,7 +425,7 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
+ 
 <!-- EDUCATION -->
 <section id="education">
   <div class="wrap">
@@ -483,7 +483,7 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
+ 
 <!-- RESEARCH -->
 <section id="research">
   <div class="wrap">
@@ -510,7 +510,7 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
+ 
 <!-- AWARDS -->
 <section id="awards">
   <div class="wrap">
@@ -540,7 +540,7 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
+ 
 <!-- PUBLICATIONS -->
 <section id="publications">
   <div class="wrap">
@@ -569,7 +569,7 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
+ 
 <!-- GLOBAL FOOTPRINT -->
 <section id="global">
   <div class="wrap">
@@ -585,7 +585,7 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
@@ -656,12 +656,12 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <strong>Ahmad Hassan</strong> &mdash; Ph.D. Researcher, University of Padua, Italy<br/>
   <span style="color:var(--text3)">"O Lord, I ask Thee for Beneficial Knowledge, acceptable action, and good provision."</span>
 </footer>
-
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script>
@@ -686,18 +686,18 @@ footer strong{color:var(--green);}
     });
   },50);
 })();
-
+ 
 /* ── NAV HAMBURGER ── */
 const hbgEl=document.getElementById('hbg'),drwEl=document.getElementById('drw');
 hbgEl.addEventListener('click',()=>{hbgEl.classList.toggle('open');drwEl.classList.toggle('open');});
 function cD(){hbgEl.classList.remove('open');drwEl.classList.remove('open');}
-
+ 
 /* ── SCROLL REVEAL ── */
 const ro=new IntersectionObserver(es=>{
   es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*60);ro.unobserve(e.target);}});
 },{threshold:.07});
 document.querySelectorAll('.rev,.trow,.card,.aw,.pub').forEach(el=>ro.observe(el));
-
+ 
 /* ── WORD COUNT ── */
 const msgEl=document.getElementById('fm'),wcEl=document.getElementById('wc');
 msgEl.addEventListener('input',()=>{
@@ -705,11 +705,8 @@ msgEl.addEventListener('input',()=>{
   wcEl.textContent=words+' / 500 words';
   wcEl.className='wcount'+(words>450&&words<=500?' warn':words>500?' over':'');
 });
-
-/* ── CONTACT FORM via Formspree ──
-   SETUP: Visit https://formspree.io → sign up free →
-   create a form → paste your email ahmad.hassan@unipd.it →
-   copy the form ID (e.g. xdkewkna) → replace YOUR_FORM_ID below */
+ 
+/* ── CONTACT FORM via Formspree ── */
 document.getElementById('cform').addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=document.getElementById('subtn'),msg=document.getElementById('fmsg');
@@ -719,19 +716,34 @@ document.getElementById('cform').addEventListener('submit',async function(e){
     msg.className='fmsg err';msg.textContent='Please fill in your name and email address.';return;}
   btn.disabled=true;btn.innerHTML='&#x23F3;&nbsp; Sending...';msg.className='fmsg';
   try{
-    const fd=new FormData(this);
-    const res=await fetch('https://formspree.io/f/xnjwezkw',{method:'POST',body:fd,headers:{Accept:'application/json'}});
-    if(res.ok){
+    /* Send as JSON so Formspree CORS headers are returned correctly */
+    const data={
+      name:document.getElementById('fn').value.trim(),
+      email:document.getElementById('fe').value.trim(),
+      affiliation:document.getElementById('fa').value.trim(),
+      message:msgEl.value.trim()
+    };
+    const res=await fetch('https://formspree.io/f/xnjwezkw',{
+      method:'POST',
+      body:JSON.stringify(data),
+      headers:{'Content-Type':'application/json','Accept':'application/json'}
+    });
+    const json=await res.json();
+    if(res.ok&&!json.errors){
       msg.className='fmsg ok';
       msg.innerHTML='&#10003;&nbsp; Message sent! Ahmad will get back to you soon.';
       this.reset();wcEl.textContent='0 / 500 words';wcEl.className='wcount';
-    }else{throw new Error();}
-  }catch{
+    }else{
+      const errText=json.errors?json.errors.map(e=>e.message).join(', '):'Submission failed (status '+res.status+').';
+      msg.className='fmsg err';
+      msg.textContent=errText;
+    }
+  }catch(err){
     msg.className='fmsg err';
-    msg.textContent='Could not send. Please email ahmad.hassan@unipd.it directly.';}
+    msg.textContent='Network error: '+err.message+'. Please email ahmad.hassan@unipd.it directly.';}
   btn.disabled=false;btn.innerHTML='&#x25B6;&nbsp; Send Message';
 });
-
+ 
 /* ── WORLD MAP ── */
 const VISITED={
   'ITA':{name:'Italy',purpose:'Ph.D. at University of Padua \u00b7 SPRITZ Security Group'},
@@ -755,7 +767,7 @@ const VISITED={
   'SAU':{name:'Saudi Arabia',purpose:'General visit'},
   'TUR':{name:'T\u00fcrkiye',purpose:'General visit'}
 };
-
+ 
 const N2A3={4:'AFG',8:'ALB',12:'DZA',24:'AGO',32:'ARG',36:'AUS',40:'AUT',31:'AZE',
   50:'BGD',56:'BEL',64:'BTN',68:'BOL',76:'BRA',100:'BGR',108:'BDI',204:'BEN',
   116:'KHM',120:'CMR',124:'CAN',140:'CAF',178:'COG',180:'COD',384:'CIV',170:'COL',
@@ -773,7 +785,7 @@ const N2A3={4:'AFG',8:'ALB',12:'DZA',24:'AGO',32:'ARG',36:'AUS',40:'AUT',31:'AZE
   484:'MEX',454:'MWI',686:'SEN',760:'SYR',807:'MKD',498:'MDA',112:'BLR',
   440:'LTU',428:'LVA',233:'EST',643:'RUS',804:'UKR',688:'SRB',70:'BIH',499:'MNE',
   196:'CYP',470:'MLT',352:'ISL',372:'IRL',442:'LUX',20:'AND'};
-
+ 
 fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 .then(r=>r.json())
 .then(world=>{
@@ -785,12 +797,12 @@ fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
   const borders=topojson.mesh(world,world.objects.countries,(a,b)=>a!==b);
   const tt=document.getElementById('mtt');
   const mw=document.querySelector('.mapwrap');
-
+ 
   svg.append('path').datum({type:'Sphere'}).attr('d',pathGen)
     .attr('fill','#020a06').attr('stroke','rgba(0,245,160,.12)').attr('stroke-width',.9);
   svg.append('path').datum(d3.geoGraticule()()).attr('d',pathGen)
     .attr('fill','none').attr('stroke','rgba(0,245,160,.04)').attr('stroke-width',.4);
-
+ 
   svg.append('g').selectAll('path').data(feats).join('path')
     .attr('d',d=>{
       /* Kashmir: clip out the disputed region from India & Pakistan paths
@@ -814,10 +826,10 @@ fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
     .on('mouseleave',function(ev,d){
       const a3=N2A3[+d.id];if(a3&&VISITED[a3])tt.classList.remove('show');
     });
-
+ 
   svg.append('path').datum(borders).attr('d',pathGen)
     .attr('fill','none').attr('stroke','#0d2a18').attr('stroke-width',.35);
-
+ 
   /* Kashmir disputed zone — neutral overlay so it's not shown as part of India or Pakistan */
   const kashmir={type:'Feature',geometry:{type:'Polygon',coordinates:[[
     [74.0,37.0],[75.5,36.7],[77.2,35.8],[78.5,35.0],[79.2,34.3],
@@ -834,7 +846,7 @@ fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
     .attr('text-anchor','middle').attr('font-size','6px')
     .attr('fill','rgba(0,245,160,.35)').attr('font-family','IBM Plex Mono,monospace')
     .text('Disputed');
-
+ 
   /* green dots on visited countries */
   const centroids={
     'ITA':[12.5674,41.8719],'CHN':[104.1954,35.8617],'GBR':[-3.4360,55.3781],
