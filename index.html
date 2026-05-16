@@ -12,23 +12,23 @@
 :root{
   --bg:#05080f;--bg2:#0c1220;--bg3:#111828;
   --green:#00f5a0;--green2:#00c47f;--green3:#007a4f;
-  --gg:rgba(0,245,160,.12);--gg2:rgba(0,245,160,.06);
+  --gg:rgba(0,245,160,.15);--gg2:rgba(0,245,160,.07);
   --cyan:#38bdf8;--amber:#fbbf24;--red:#f87171;
   --text:#e2e8f0;--text2:#94a3b8;--text3:#475569;
-  --border:rgba(255,255,255,.07);--b2:rgba(0,245,160,.22);
+  --border:rgba(255,255,255,.07);--b2:rgba(0,245,160,.3);
   --r:12px;--nh:60px;
 }
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(rgba(0,245,160,.022)1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,245,160,.022)1px,transparent 1px);
+  background-image:linear-gradient(rgba(0,245,160,.028)1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,245,160,.028)1px,transparent 1px);
   background-size:52px 52px;}
-#mc{position:fixed;top:0;left:0;width:100%;height:100%;opacity:.045;z-index:0;pointer-events:none;}
-
+#mc{position:fixed;top:0;left:0;width:100%;height:100%;opacity:.13;z-index:0;pointer-events:none;}
+ 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nh);
-  background:rgba(5,8,15,.92);border-bottom:1px solid var(--border);
+  background:rgba(5,8,15,.93);border-bottom:1px solid var(--border);
   backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);}
 .ni{max-width:1240px;margin:0 auto;height:100%;display:flex;align-items:center;
   justify-content:space-between;padding:0 2rem;gap:1rem;}
@@ -44,9 +44,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nh);
   font-size:.6rem;color:var(--text3);white-space:nowrap;background:var(--bg2);
   border:1px solid var(--border);padding:.32rem .75rem;border-radius:999px;flex-shrink:0;}
 .dg{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;
-  box-shadow:0 0 6px var(--green);animation:pd 2.4s ease infinite;}
+  box-shadow:0 0 8px var(--green);animation:pd 2.4s ease infinite;}
 @keyframes pd{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
-/* hamburger */
 .hbg{display:none;flex-direction:column;justify-content:center;gap:5px;
   width:38px;height:38px;background:var(--bg2);border:1px solid var(--border);
   border-radius:8px;cursor:pointer;padding:0;flex-shrink:0;}
@@ -55,7 +54,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nh);
 .hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hbg.open span:nth-child(2){opacity:0;transform:scaleX(0);}
 .hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-/* drawer */
 .drw{position:fixed;top:var(--nh);left:0;right:0;z-index:850;
   background:rgba(5,8,15,.98);border-bottom:1px solid var(--border);
   backdrop-filter:blur(18px);transform:translateY(-110%);
@@ -69,7 +67,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nh);
 .drw a::before{content:'//';color:var(--green3);font-size:.6rem;}
 .drw a:hover{color:var(--green);}
 .drw a:last-child{border-bottom:none;}
-
+ 
 /* ── LAYOUT ── */
 .wrap{max-width:1240px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
 section{padding:6rem 0;position:relative;z-index:1;}
@@ -79,17 +77,22 @@ section+section{border-top:1px solid var(--border);}
 .sl::before{content:'';width:22px;height:1px;background:var(--green);}
 .st{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);
   letter-spacing:.04em;color:#fff;margin-bottom:2.8rem;line-height:1.05;}
-
+ 
 /* ── HERO ── */
-#home{min-height:100vh;padding-top:calc(var(--nh)+4rem);padding-bottom:4rem;display:flex;align-items:center;}
+#home{
+  min-height:100vh;
+  padding-top:calc(var(--nh) + 5rem);  /* extra clearance so name is not hidden */
+  padding-bottom:4rem;
+  display:flex;align-items:center;
+}
 .hgrid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:5rem;}
 .heye{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--green);margin-bottom:1.1rem;
   display:flex;align-items:center;gap:.6rem;}
 .heye::before{content:'';width:26px;height:1px;background:var(--green);}
 .hname{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.8rem,9vw,8rem);
-  letter-spacing:.04em;line-height:.92;color:#fff;margin-bottom:.6rem;}
-.hname .g{color:var(--green);text-shadow:0 0 40px rgba(0,245,160,.3);}
+  letter-spacing:.04em;line-height:.92;color:#fff;margin-bottom:.8rem;}
+.hname .g{color:var(--green);text-shadow:0 0 50px rgba(0,245,160,.45);}
 .hrole{font-family:'IBM Plex Mono',monospace;font-size:clamp(.7rem,1.4vw,.86rem);
   color:var(--text2);margin-bottom:1.4rem;display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;}
 .hrole .s{color:var(--text3);}
@@ -107,30 +110,69 @@ section+section{border-top:1px solid var(--border);}
 .bsolid:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,245,160,.24);}
 .bghost{background:transparent;color:var(--green);border:1px solid var(--b2);}
 .bghost:hover{background:var(--gg);border-color:var(--green);transform:translateY(-2px);}
+ 
 /* photo */
 .hphoto{position:relative;flex-shrink:0;}
-.hframe{width:275px;height:275px;position:relative;border-radius:16px;overflow:hidden;
-  border:1px solid var(--b2);box-shadow:0 0 0 1px var(--border),0 24px 60px rgba(0,0,0,.5),0 0 55px rgba(0,245,160,.07);}
+.hframe{
+  width:275px;height:275px;position:relative;border-radius:16px;overflow:hidden;
+  border:2px solid var(--green);
+  box-shadow:
+    0 0 0 4px rgba(0,245,160,.18),
+    0 0 30px rgba(0,245,160,.35),
+    0 24px 60px rgba(0,0,0,.55);
+}
 .hframe img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
-.hframe::before{content:'';position:absolute;top:-1px;right:-1px;width:42px;height:42px;
-  border-top:2px solid var(--green);border-right:2px solid var(--green);border-radius:0 16px 0 0;z-index:2;}
-.hframe::after{content:'';position:absolute;bottom:-1px;left:-1px;width:42px;height:42px;
-  border-bottom:2px solid var(--green);border-left:2px solid var(--green);border-radius:0 0 0 16px;z-index:2;}
-.hbadge{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
+/* corner brackets — thicker, brighter, larger */
+.hframe::before{
+  content:'';position:absolute;top:-2px;right:-2px;
+  width:56px;height:56px;
+  border-top:4px solid var(--green);
+  border-right:4px solid var(--green);
+  border-radius:0 16px 0 0;z-index:3;
+  box-shadow:4px -4px 14px rgba(0,245,160,.5);
+}
+.hframe::after{
+  content:'';position:absolute;bottom:-2px;left:-2px;
+  width:56px;height:56px;
+  border-bottom:4px solid var(--green);
+  border-left:4px solid var(--green);
+  border-radius:0 0 0 16px;z-index:3;
+  box-shadow:-4px 4px 14px rgba(0,245,160,.5);
+}
+/* extra corners via wrapper pseudo */
+.hphoto::before{
+  content:'';position:absolute;top:-2px;left:-2px;
+  width:56px;height:56px;
+  border-top:4px solid var(--green);
+  border-left:4px solid var(--green);
+  border-radius:16px 0 0 0;z-index:3;
+  box-shadow:-4px -4px 14px rgba(0,245,160,.5);
+}
+.hphoto::after{
+  content:'';position:absolute;bottom:-2px;right:-2px;
+  width:56px;height:56px;
+  border-bottom:4px solid var(--green);
+  border-right:4px solid var(--green);
+  border-radius:0 0 16px 0;z-index:3;
+  box-shadow:4px 4px 14px rgba(0,245,160,.5);
+}
+.hbadge{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);
   font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;
   white-space:nowrap;background:var(--bg2);border:1px solid var(--b2);
-  padding:.32rem .95rem;border-radius:999px;color:var(--green);display:flex;align-items:center;gap:.42rem;}
+  padding:.32rem .95rem;border-radius:999px;color:var(--green);display:flex;align-items:center;gap:.42rem;
+  box-shadow:0 0 12px rgba(0,245,160,.2);}
+ 
 /* terminal */
 .term{margin-top:2.2rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;max-width:510px;}
 .tbar{display:flex;align-items:center;gap:.42rem;padding:.58rem 1rem;background:var(--bg3);border-bottom:1px solid var(--border);}
 .tdot{width:11px;height:11px;border-radius:50%;}
 .tdot.r{background:#ff5f56;}.tdot.y{background:#ffbd2e;}.tdot.g{background:#27c93f;}
-.ttitle{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--text3);margin:0 auto;}
+.ttitle{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--text3);margin:0 auto;}
 .tbody{padding:.95rem 1.2rem;font-family:'IBM Plex Mono',monospace;font-size:.74rem;line-height:2;}
 .tc2{color:var(--text3);}.tk{color:var(--green);}.tv{color:var(--cyan);}.ta{color:var(--amber);}
 .cur{display:inline-block;width:7px;height:13px;background:var(--green);vertical-align:-2px;animation:bl 1s step-end infinite;}
 @keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
-
+ 
 /* ── TIMELINE ── */
 .tline{display:grid;gap:0;}
 .trow{display:grid;grid-template-columns:108px 1px 1fr;gap:0 1.4rem;align-items:stretch;
@@ -149,8 +191,8 @@ section+section{border-top:1px solid var(--border);}
 .tplace{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--text2);line-height:1.5;}
 .tplace a{color:var(--cyan);text-decoration:none;}
 .tplace a:hover{text-decoration:underline;}
-
-/* ── CARDS ── */
+ 
+/* ── RESEARCH CARDS ── */
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.7rem;
   opacity:0;transform:translateY(14px);
@@ -166,15 +208,7 @@ section+section{border-top:1px solid var(--border);}
 .clist li:hover{color:var(--text);}
 .clist li:last-child{border-bottom:none;}
 .clist li::before{content:'\25B8';color:var(--green3);font-size:.58rem;flex-shrink:0;}
-/* skill bars */
-.skills{display:grid;gap:.95rem;margin-top:2.4rem;}
-.shdr{display:flex;justify-content:space-between;margin-bottom:.36rem;}
-.sname{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--text);}
-.spct{font-family:'IBM Plex Mono',monospace;font-size:.66rem;color:var(--green);}
-.strack{height:3px;background:var(--bg3);border-radius:99px;overflow:hidden;}
-.sbar{height:100%;background:var(--green);border-radius:99px;width:0;transition:width 1.3s cubic-bezier(.4,0,.2,1);}
-.sbar.c{background:var(--cyan);}.sbar.a{background:var(--amber);}
-
+ 
 /* ── AWARDS ── */
 .awlist{display:flex;flex-direction:column;gap:.85rem;}
 .aw{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);
@@ -191,8 +225,8 @@ section+section{border-top:1px solid var(--border);}
 .aws a:hover{text-decoration:underline;}
 .awy{font-family:'IBM Plex Mono',monospace;font-size:.64rem;color:var(--green);white-space:nowrap;
   flex-shrink:0;background:var(--gg);border:1px solid var(--b2);padding:.2rem .6rem;border-radius:6px;}
-
-/* ── PUBS ── */
+ 
+/* ── PUBLICATIONS ── */
 .publist{display:flex;flex-direction:column;gap:1.1rem;}
 .pub{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem;
   display:grid;grid-template-columns:auto 1fr;gap:1.2rem;
@@ -212,10 +246,8 @@ section+section{border-top:1px solid var(--border);}
   padding:.48rem 1rem;border-radius:8px;border:1px solid var(--border);color:var(--text2);
   text-decoration:none;background:var(--bg2);transition:all .22s;display:inline-flex;align-items:center;gap:.38rem;}
 .ebtn:hover{border-color:var(--green);color:var(--green);background:var(--gg);}
-
-/* ═══════════════════════════════
-   GLOBAL FOOTPRINT / MAP
-═══════════════════════════════ */
+ 
+/* ── WORLD MAP ── */
 #global{background:rgba(8,13,24,.6);}
 .mapwrap{position:relative;width:100%;background:#030d08;border:1px solid var(--border);
   border-radius:var(--r);overflow:hidden;}
@@ -223,8 +255,7 @@ section+section{border-top:1px solid var(--border);}
 path.land{fill:#0a1e12;stroke:#152b1c;stroke-width:.35;}
 path.visited{fill:#003d1c;stroke:#00f5a0;stroke-width:.7;cursor:pointer;transition:fill .18s;}
 path.visited:hover{fill:#006830;}
-path.border{fill:none;stroke:#0d2a18;stroke-width:.3;}
-.mtt{position:absolute;background:rgba(5,8,15,.96);border:1px solid var(--b2);
+.mtt{position:absolute;background:rgba(5,8,15,.97);border:1px solid var(--b2);
   border-radius:10px;padding:.75rem 1rem;pointer-events:none;
   font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--text);
   max-width:265px;z-index:20;opacity:0;transition:opacity .14s;white-space:normal;line-height:1.65;
@@ -232,19 +263,11 @@ path.border{fill:none;stroke:#0d2a18;stroke-width:.3;}
 .mtt.show{opacity:1;}
 .mtt .mname{color:var(--green);font-size:.74rem;font-weight:600;margin-bottom:.25rem;}
 .mtt .mpurp{color:var(--text2);font-size:.64rem;}
-.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.7rem;margin-top:2rem;}
-.cc{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:.85rem 1rem;transition:all .22s;}
-.cc:hover{border-color:var(--b2);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,245,160,.07);}
-.ccn{font-size:.88rem;font-weight:600;color:#fff;margin-bottom:.18rem;display:flex;align-items:center;gap:.48rem;}
-.ccf{font-size:1.05rem;}
-.ccp{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--text2);line-height:1.5;}
-
-/* ═══════════════════════════════
-   CONTACT FORM
-═══════════════════════════════ */
+ 
+/* ── CONTACT FORM ── */
 .colgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
 .formcard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:2rem;}
-.fhead{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.18em;
+.fhead{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.18em;
   text-transform:uppercase;color:var(--green);margin-bottom:1.5rem;}
 .frow{display:grid;gap:1rem;margin-bottom:1rem;}
 .frow.two{grid-template-columns:1fr 1fr;}
@@ -256,23 +279,11 @@ path.border{fill:none;stroke:#0d2a18;stroke-width:.3;}
   padding:.68rem .95rem;outline:none;transition:border-color .22s,box-shadow .22s;width:100%;}
 .fld input::placeholder,.fld textarea::placeholder{color:var(--text3);}
 .fld input:focus,.fld textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,245,160,.09);}
-.fld textarea{resize:vertical;min-height:138px;max-height:300px;line-height:1.65;}
+.fld textarea{resize:vertical;min-height:160px;max-height:340px;line-height:1.65;}
 .wcount{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--text3);
-  text-align:right;margin-top:.22rem;transition:color .2s;}
+  text-align:right;margin-top:.22rem;margin-bottom:.5rem;transition:color .2s;}
 .wcount.warn{color:var(--amber);}.wcount.over{color:var(--red);}
-/* file drop */
-.fdrop{border:1.5px dashed rgba(255,255,255,.1);border-radius:8px;padding:1.15rem;text-align:center;
-  cursor:pointer;transition:all .22s;background:var(--bg3);position:relative;overflow:hidden;}
-.fdrop:hover{border-color:var(--green);background:var(--gg2);}
-.fdrop input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
-.fdrop-ico{font-size:1.45rem;margin-bottom:.38rem;}
-.fdrop-txt{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--text2);line-height:1.7;}
-.fdrop-txt b{color:var(--green);}
-.fprev{margin-top:.55rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;
-  color:var(--green);display:none;align-items:center;gap:.38rem;justify-content:center;}
-.fprev.on{display:flex;}
-.fclr{background:none;border:none;color:var(--red);cursor:pointer;font-size:.95rem;padding:0;line-height:1;}
-.subtn{width:100%;margin-top:1.15rem;background:var(--green);color:var(--bg);font-weight:700;
+.subtn{width:100%;margin-top:1.1rem;background:var(--green);color:var(--bg);font-weight:700;
   font-family:'IBM Plex Mono',monospace;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;
   padding:.82rem;border-radius:8px;border:none;cursor:pointer;transition:all .22s;
   display:flex;align-items:center;justify-content:center;gap:.48rem;}
@@ -282,7 +293,6 @@ path.border{fill:none;stroke:#0d2a18;stroke-width:.3;}
   font-size:.66rem;display:none;text-align:center;line-height:1.6;}
 .fmsg.ok{display:block;background:rgba(0,245,160,.07);border:1px solid var(--b2);color:var(--green);}
 .fmsg.err{display:block;background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.28);color:var(--red);}
-/* info panel */
 .infopanel{display:flex;flex-direction:column;gap:1.1rem;}
 .icard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.35rem;transition:border-color .25s;}
 .icard:hover{border-color:var(--b2);}
@@ -302,16 +312,16 @@ path.border{fill:none;stroke:#0d2a18;stroke-width:.3;}
 .mapcard-ft{padding:.65rem 1.05rem;border-top:1px solid var(--border);font-family:'IBM Plex Mono',monospace;
   font-size:.6rem;color:var(--text3);display:flex;align-items:center;gap:.45rem;}
 .mapcard-ft::before{content:'●';color:var(--green);font-size:.48rem;}
-
+ 
 /* ── FOOTER ── */
 footer{border-top:1px solid var(--border);padding:2rem;text-align:center;
   font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--text3);line-height:2.2;position:relative;z-index:1;}
 footer strong{color:var(--green);}
-
+ 
 /* ── REVEAL ── */
 .rev{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
 .rev.vis{opacity:1;transform:translateY(0);}
-
+ 
 /* ── RESPONSIVE ── */
 @media(max-width:1040px){.npill{display:none;}.hgrid{gap:3rem;}.hframe{width:235px;height:235px;}}
 @media(max-width:820px){
@@ -322,12 +332,13 @@ footer strong{color:var(--green);}
   section{padding:4rem 0;}
   .colgrid,.grid2{grid-template-columns:1fr;}
   .frow.two{grid-template-columns:1fr;}
-  .cgrid{grid-template-columns:repeat(auto-fill,minmax(175px,1fr));}
 }
 @media(max-width:560px){
   .wrap{padding:0 1.15rem;}.ni{padding:0 1.15rem;}.drw{padding:.8rem 1.15rem 1.3rem;}
   section{padding:3rem 0;}
+  #home{padding-top:calc(var(--nh)+3.5rem);}
   .hframe{width:152px;height:152px;}
+  .hphoto::before,.hphoto::after,.hframe::before,.hframe::after{width:36px;height:36px;}
   .pub{grid-template-columns:1fr;}.pyr{width:fit-content;}
   .aw{flex-wrap:wrap;}.awy{margin-left:auto;}
   .trow{grid-template-columns:68px 1px 1fr;gap:0 .75rem;}
@@ -338,11 +349,11 @@ footer strong{color:var(--green);}
 </head>
 <body>
 <canvas id="mc"></canvas>
-
-<!-- ── NAV ── -->
+ 
+<!-- NAV -->
 <nav>
   <div class="ni">
-    <a href="#home" class="logo">AH<span>@spritz</span></a>
+    <a href="#home" class="logo">Ahmad<span> Hassan</span></a>
     <ul class="nmenu">
       <li><a href="#home">Home</a></li>
       <li><a href="#education">Education</a></li>
@@ -365,8 +376,8 @@ footer strong{color:var(--green);}
   <a href="#global" onclick="cD()">Global Footprint</a>
   <a href="#contact" onclick="cD()">Contact</a>
 </div>
-
-<!-- ── HERO ── -->
+ 
+<!-- HERO -->
 <section id="home">
   <div class="wrap">
     <div class="hgrid">
@@ -377,7 +388,7 @@ footer strong{color:var(--green);}
           <span>SPRITZ Security Group</span><span class="s">&middot;</span>
           <span>Univ. of Padua</span><span class="s">&middot;</span><span>MSCA Fellow</span>
         </p>
-        <p class="hdesc">Ph.D. researcher investigating vehicular cybersecurity, UAV system threats, and adversarial machine learning &mdash; bridging AI and security.</p>
+        <p class="hdesc">Ph.D. researcher investigating vehicular cybersecurity, UAV system threats, and adversarial machine learning &mdash; bridging the gap between AI and security.</p>
         <div class="htags">
           <span class="tag">Vehicular Security</span><span class="tag">UAV Security</span>
           <span class="tag">V2V Communication</span><span class="tag">ML for Security</span>
@@ -389,11 +400,13 @@ footer strong{color:var(--green);}
           <a href="#contact" class="btn bghost">Contact Me</a>
         </div>
         <div class="term">
-          <div class="tbar"><span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
-            <span class="ttitle">ahmad@spritz:~$</span></div>
+          <div class="tbar">
+            <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+            <span class="ttitle">Ahmad &mdash; Research Terminal</span>
+          </div>
           <div class="tbody">
             <div><span class="tc2">$</span> <span class="tk">whoami</span></div>
-            <div>&nbsp;&nbsp;Ahmad Hassan &mdash; PhD Candidate &amp; MSCA Fellow</div>
+            <div>&nbsp;&nbsp;Ahmad Hassan &mdash; PhD Fellow &amp; MSCA Fellow</div>
             <div><span class="tc2">$</span> <span class="tk">cat affiliation</span></div>
             <div>&nbsp;&nbsp;University of Padua &middot; <span class="tv">SPRITZ Security Group</span></div>
             <div><span class="tc2">$</span> <span class="tk">cat fellowship</span></div>
@@ -412,68 +425,93 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
-<!-- ── EDUCATION ── -->
+ 
+<!-- EDUCATION -->
 <section id="education">
   <div class="wrap">
     <p class="sl rev">Education</p>
-    <h2 class="st rev">"O Lord, increase me in knowledge."</h2>
+    <h2 class="st rev">Academic Background</h2>
     <div class="tline">
-      <div class="trow"><div class="tyr">2022&ndash;2025</div>
+      <div class="trow">
+        <div class="tyr">2022&ndash;2025</div>
         <div class="tstem"><div class="tdot2 act"></div><div class="ttrack"></div></div>
-        <div class="tcont"><div class="tdeg">Ph.D. in Brain, Mind &amp; Computer Science</div>
-          <div class="tplace"><a href="https://unipd.it" target="_blank" rel="noopener">University of Padua</a> &middot; Italy &middot; Cybersecurity domain</div></div></div>
-      <div class="trow"><div class="tyr">Aug&ndash;Nov 2022</div>
+        <div class="tcont">
+          <div class="tdeg">Ph.D. in Brain, Mind &amp; Computer Science</div>
+          <div class="tplace">
+            <a href="https://unipd.it" target="_blank" rel="noopener">University of Padua</a>
+            &middot; Italy &middot; Cybersecurity domain<br/>
+            Supervisor: <a href="https://www.math.unipd.it/~conti/" target="_blank" rel="noopener">Prof. Mauro Conti</a>
+          </div>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="tyr">Aug&ndash;Nov 2022</div>
         <div class="tstem"><div class="tdot2"></div><div class="ttrack"></div></div>
-        <div class="tcont"><div class="tdeg">Research Assistant</div>
-          <div class="tplace"><a href="https://english.siat.ac.cn/" target="_blank" rel="noopener">SIAT-CAS, Chinese Academy of Sciences</a> &middot; China</div></div></div>
-      <div class="trow"><div class="tyr">2019&ndash;2022</div>
+        <div class="tcont">
+          <div class="tdeg">Research Assistant</div>
+          <div class="tplace"><a href="https://english.siat.ac.cn/" target="_blank" rel="noopener">SIAT-CAS, Chinese Academy of Sciences</a> &middot; China</div>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="tyr">2019&ndash;2022</div>
         <div class="tstem"><div class="tdot2"></div><div class="ttrack"></div></div>
-        <div class="tcont"><div class="tdeg">M.Sc. Computer Science &amp; Technology</div>
-          <div class="tplace"><a href="https://www.jxnu.edu.cn/" target="_blank" rel="noopener">Jiangxi Normal University</a> &middot; China</div></div></div>
-      <div class="trow"><div class="tyr">2018&ndash;2019</div>
+        <div class="tcont">
+          <div class="tdeg">M.Sc. Computer Science &amp; Technology</div>
+          <div class="tplace">
+            <a href="https://www.jxnu.edu.cn/" target="_blank" rel="noopener">Jiangxi Normal University</a>
+            &middot; China<br/>
+            Supervisor: <a href="https://scholar.google.com/citations?user=mrTFfy4AAAAJ&hl=en" target="_blank" rel="noopener">Prof. Li Hanxi</a>
+          </div>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="tyr">2018&ndash;2019</div>
         <div class="tstem"><div class="tdot2"></div><div class="ttrack"></div></div>
-        <div class="tcont"><div class="tdeg">Chinese Language &mdash; &#27721;&#35821;&#27700;&#24179;&#32771;&#35797;</div>
-          <div class="tplace">Jiangxi Normal University &middot; China</div></div></div>
-      <div class="trow"><div class="tyr">2013&ndash;2017</div>
+        <div class="tcont">
+          <div class="tdeg">Chinese Language &mdash; &#27721;&#35821;&#27700;&#24179;&#32771;&#35797;</div>
+          <div class="tplace">Jiangxi Normal University &middot; China</div>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="tyr">2013&ndash;2017</div>
         <div class="tstem"><div class="tdot2"></div><div class="ttrack"></div></div>
-        <div class="tcont"><div class="tdeg">B.Sc. Information Technology</div>
-          <div class="tplace"><a href="http://web.uaf.edu.pk/" target="_blank" rel="noopener">University of Agriculture Faisalabad</a> &middot; Pakistan</div></div></div>
+        <div class="tcont">
+          <div class="tdeg">B.Sc. Information Technology</div>
+          <div class="tplace"><a href="http://web.uaf.edu.pk/" target="_blank" rel="noopener">University of Agriculture Faisalabad</a> &middot; Pakistan</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- ── RESEARCH ── -->
+ 
+<!-- RESEARCH -->
 <section id="research">
   <div class="wrap">
     <p class="sl rev">Research</p>
     <h2 class="st rev">Areas of Focus</h2>
     <div class="grid2">
-      <div class="card"><div class="cicon">&#x1F6E1;&#xFE0F;</div><div class="clabel">// Cybersecurity</div>
-        <ul class="clist"><li>Vehicular Security</li><li>UAVs / Drone Security</li><li>Network Security</li>
+      <div class="card">
+        <div class="cicon">&#x1F6E1;&#xFE0F;</div>
+        <div class="clabel">// Cybersecurity</div>
+        <ul class="clist">
+          <li>Vehicular Security</li><li>UAVs / Drone Security</li><li>Network Security</li>
           <li>Vehicular Telematics</li><li>V2V Communication Security &amp; Privacy</li>
-          <li>Threat Identification</li><li>ML for Security &amp; Security for ML</li></ul></div>
-      <div class="card"><div class="cicon">&#x1F916;</div><div class="clabel">// AI &amp; Vision</div>
-        <ul class="clist"><li>Computer Vision</li><li>Signal Processing</li><li>AI / ML / Deep Learning</li>
-          <li>Virtual &amp; Augmented Reality</li><li>Image Processing &amp; Matting</li></ul></div>
-    </div>
-    <p class="sl rev" style="margin-top:3rem">Expertise Levels</p>
-    <div class="skills" id="sbars">
-      <div><div class="shdr"><span class="sname">Vehicular &amp; IoT Security</span><span class="spct">92%</span></div>
-        <div class="strack"><div class="sbar" data-t="92"></div></div></div>
-      <div><div class="shdr"><span class="sname">Machine Learning / Deep Learning</span><span class="spct">88%</span></div>
-        <div class="strack"><div class="sbar" data-t="88"></div></div></div>
-      <div><div class="shdr"><span class="sname">Network Security &amp; Protocols</span><span class="spct">85%</span></div>
-        <div class="strack"><div class="sbar" data-t="85"></div></div></div>
-      <div><div class="shdr"><span class="sname">Computer Vision &amp; Signal Processing</span><span class="spct" style="color:var(--cyan)">80%</span></div>
-        <div class="strack"><div class="sbar c" data-t="80"></div></div></div>
-      <div><div class="shdr"><span class="sname">Threat Modelling &amp; Analysis</span><span class="spct" style="color:var(--amber)">75%</span></div>
-        <div class="strack"><div class="sbar a" data-t="75"></div></div></div>
+          <li>Threat Identification</li><li>ML for Security &amp; Security for ML</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="cicon">&#x1F916;</div>
+        <div class="clabel">// AI &amp; Vision</div>
+        <ul class="clist">
+          <li>Computer Vision</li><li>Signal Processing</li><li>AI / ML / Deep Learning</li>
+          <li>Virtual &amp; Augmented Reality</li><li>Image Processing &amp; Matting</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- ── AWARDS ── -->
+ 
+<!-- AWARDS -->
 <section id="awards">
   <div class="wrap">
     <p class="sl rev">Recognition</p>
@@ -502,21 +540,27 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
-<!-- ── PUBLICATIONS ── -->
+ 
+<!-- PUBLICATIONS -->
 <section id="publications">
   <div class="wrap">
     <p class="sl rev">Research Output</p>
     <h2 class="st rev">Publications</h2>
     <div class="publist">
       <div class="pub"><div class="pyr">2022</div>
-        <div><div class="ptit">LSTM-based Eye-Movement Trajectory Analysis for Reading Behavior Classification</div>
+        <div>
+          <div class="ptit">LSTM-based Eye-Movement Trajectory Analysis for Reading Behavior Classification</div>
           <div class="pven">Ahmad Hassan, Wei Fan, &hellip;, Hanxi Li &middot; ISPP 2022 &middot; Int. Conf. on Image, Signal Processing and Pattern Recognition &middot; Guilin, China</div>
-          <a class="plnk" href="https://doi.org/10.1117/12.2636952" target="_blank" rel="noopener">&#x25B6; DOI: 10.1117/12.2636952</a></div></div>
+          <a class="plnk" href="https://doi.org/10.1117/12.2636952" target="_blank" rel="noopener">&#x25B6; DOI: 10.1117/12.2636952</a>
+        </div>
+      </div>
       <div class="pub"><div class="pyr">2021</div>
-        <div><div class="ptit">Data-Driven Soft Sensor Model Based on Deep Learning for Quality Prediction of Industrial Processes</div>
+        <div>
+          <div class="ptit">Data-Driven Soft Sensor Model Based on Deep Learning for Quality Prediction of Industrial Processes</div>
           <div class="pven">Xianglin Zhu, Khalil Ur Rehman, &hellip;, Ahmad Hassan &middot; SN Computer Science, Springer 2021</div>
-          <a class="plnk" href="https://link.springer.com/article/10.1007/s42979-020-00440-4" target="_blank" rel="noopener">&#x25B6; Springer Link</a></div></div>
+          <a class="plnk" href="https://link.springer.com/article/10.1007/s42979-020-00440-4" target="_blank" rel="noopener">&#x25B6; Springer Link</a>
+        </div>
+      </div>
     </div>
     <div class="extrow rev">
       <a class="ebtn" href="https://scholar.google.com/citations?user=QNmDe5UAAAAJ&hl=en" target="_blank" rel="noopener">&#x1F50D; Google Scholar</a>
@@ -525,10 +569,8 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     GLOBAL FOOTPRINT
-════════════════════════════════════ -->
+ 
+<!-- GLOBAL FOOTPRINT -->
 <section id="global">
   <div class="wrap">
     <p class="sl rev">Travels &amp; Visits</p>
@@ -541,40 +583,16 @@ footer strong{color:var(--green);}
       <svg id="wsvg" viewBox="0 0 960 500" xmlns="http://www.w3.org/2000/svg"></svg>
       <div class="mtt" id="mtt"></div>
     </div>
-    <div class="cgrid rev">
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1EE;&#x1F1F9;</span>Italy</div><div class="ccp">Ph.D. at University of Padua &middot; SPRITZ Group</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1E8;&#x1F1F3;</span>China</div><div class="ccp">Research Asst. at SIAT-CAS &middot; M.Sc. studies</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1EC;&#x1F1E7;</span>United Kingdom</div><div class="ccp">Visits: Oxford, Cambridge &amp; Greenwich</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F3;&#x1F1F1;</span>Netherlands</div><div class="ccp">Conference &amp; Lecture, TU Delft</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F8;&#x1F1EA;</span>Sweden</div><div class="ccp">Summer School, RISE &amp; J&ouml;nk&ouml;ping Univ.</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1E8;&#x1F1ED;</span>Switzerland</div><div class="ccp">General visit, ETH Z&uuml;rich</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F5;&#x1F1F1;</span>Poland</div><div class="ccp">General visit, Univ. of Wroc&#322;aw</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1EB;&#x1F1EE;</span>Finland</div><div class="ccp">General visit, LUT University</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F3;&#x1F1F4;</span>Norway</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1E9;&#x1F1F0;</span>Denmark</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1EA;&#x1F1F8;</span>Spain</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F8;&#x1F1EE;</span>Slovenia</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1E8;&#x1F1FF;</span>Czech Republic</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F2;&#x1F1F9;</span>Malta</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F2;&#x1F1FE;</span>Malaysia</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F9;&#x1F1ED;</span>Thailand</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1E6;&#x1F1EA;</span>UAE</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F6;&#x1F1E6;</span>Qatar</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F8;&#x1F1E6;</span>Saudi Arabia</div><div class="ccp">General visit</div></div>
-      <div class="cc"><div class="ccn"><span class="ccf">&#x1F1F9;&#x1F1F7;</span>T&uuml;rkiye</div><div class="ccp">General visit</div></div>
-    </div>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════
-     CONTACT
-════════════════════════════════════ -->
+ 
+<!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
     <p class="sl rev">Connect</p>
     <h2 class="st rev">Get in Touch</h2>
     <div class="colgrid">
-      <!-- FORM -->
+      <!-- FORM — no file upload, clean simple -->
       <div class="formcard rev">
         <h3 class="fhead">// Send a Message</h3>
         <form id="cform" novalidate>
@@ -601,20 +619,6 @@ footer strong{color:var(--green);}
             </div>
           </div>
           <div class="wcount" id="wc">0 / 500 words</div>
-          <div class="frow" style="margin-top:1rem;margin-bottom:0">
-            <div class="fld">
-              <label>Attachment <span style="color:var(--text3);font-weight:300">(PDF, DOC, DOCX, JPG, JPEG, PNG &mdash; max 10 MB)</span></label>
-              <div class="fdrop">
-                <input type="file" id="fattach" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"/>
-                <div class="fdrop-ico">&#x1F4CE;</div>
-                <div class="fdrop-txt">Drag &amp; drop or <b>browse</b> to attach a file</div>
-              </div>
-              <div class="fprev" id="fprev">
-                <span id="fname2"></span>
-                <button class="fclr" id="fclr" type="button" title="Remove file">&times;</button>
-              </div>
-            </div>
-          </div>
           <button type="submit" class="subtn" id="subtn">&#x25B6;&nbsp; Send Message</button>
           <div class="fmsg" id="fmsg"></div>
         </form>
@@ -652,104 +656,91 @@ footer strong{color:var(--green);}
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <strong>Ahmad Hassan</strong> &mdash; Ph.D. Researcher, University of Padua, Italy<br/>
-  <span style="color:var(--text3)">"O Lord, I ask Thee for Beneficial Knowledge, acceptable action, and good provision."</span><br/>
-  Hosted on GitHub Pages
+  <span style="color:var(--text3)">"O Lord, I ask Thee for Beneficial Knowledge, acceptable action, and good provision."</span>
 </footer>
-
-<!-- ── D3 + TopoJSON ── -->
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script>
-/* MATRIX */
+/* ── MATRIX — higher opacity chars ── */
 (function(){
   const c=document.getElementById('mc'),x=c.getContext('2d');
-  let W,H,cols,dr;const ch='01ABCDEF<>{}#@$%';
-  function init(){W=c.width=innerWidth;H=c.height=innerHeight;cols=Math.floor(W/20);dr=Array(cols).fill(1);}
+  let W,H,cols,dr;
+  const ch='01ABCDEFabcdef<>{}#@$%10110100';
+  function init(){W=c.width=innerWidth;H=c.height=innerHeight;cols=Math.floor(W/18);dr=Array(cols).fill(1);}
   init();addEventListener('resize',init);
-  setInterval(()=>{x.fillStyle='rgba(5,8,15,.06)';x.fillRect(0,0,W,H);x.font='13px IBM Plex Mono,monospace';
-    dr.forEach((y,i)=>{x.fillStyle=y*20<H*.13?'#00f5a0':'#003a1a';
-      x.fillText(ch[Math.floor(Math.random()*ch.length)],i*20,y*20);
-      if(y*20>H&&Math.random()>.975)dr[i]=0;dr[i]++;});},60);
+  setInterval(()=>{
+    x.fillStyle='rgba(5,8,15,.04)';x.fillRect(0,0,W,H);
+    x.font='14px IBM Plex Mono,monospace';
+    dr.forEach((y,i)=>{
+      /* leading char bright green, rest mid green */
+      if(y*18<2){x.fillStyle='#ffffff';}
+      else if(y*18<H*.08){x.fillStyle='#00f5a0';}
+      else{x.fillStyle='rgba(0,200,100,'+(0.35+Math.random()*.3)+')';}
+      x.fillText(ch[Math.floor(Math.random()*ch.length)],i*18,y*18);
+      if(y*18>H&&Math.random()>.97)dr[i]=0;
+      dr[i]++;
+    });
+  },50);
 })();
-
-/* NAV */
+ 
+/* ── NAV HAMBURGER ── */
 const hbgEl=document.getElementById('hbg'),drwEl=document.getElementById('drw');
 hbgEl.addEventListener('click',()=>{hbgEl.classList.toggle('open');drwEl.classList.toggle('open');});
 function cD(){hbgEl.classList.remove('open');drwEl.classList.remove('open');}
-
-/* REVEAL */
+ 
+/* ── SCROLL REVEAL ── */
 const ro=new IntersectionObserver(es=>{
   es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*60);ro.unobserve(e.target);}});
 },{threshold:.07});
 document.querySelectorAll('.rev,.trow,.card,.aw,.pub').forEach(el=>ro.observe(el));
-
-/* SKILL BARS */
-const so=new IntersectionObserver(es=>{
-  es.forEach(e=>{if(e.isIntersecting){
-    document.querySelectorAll('.sbar').forEach(b=>{setTimeout(()=>b.style.width=b.dataset.t+'%',160);});
-    so.disconnect();}});},{threshold:.2});
-const sbEl=document.getElementById('sbars');if(sbEl)so.observe(sbEl);
-
-/* WORD COUNT */
+ 
+/* ── WORD COUNT ── */
 const msgEl=document.getElementById('fm'),wcEl=document.getElementById('wc');
 msgEl.addEventListener('input',()=>{
-  const w=msgEl.value.trim()===''?0:msgEl.value.trim().split(/\s+/).length;
-  wcEl.textContent=w+' / 500 words';
-  wcEl.className='wcount'+(w>450&&w<=500?' warn':w>500?' over':'');
+  const words=msgEl.value.trim()===''?0:msgEl.value.trim().split(/\s+/).length;
+  wcEl.textContent=words+' / 500 words';
+  wcEl.className='wcount'+(words>450&&words<=500?' warn':words>500?' over':'');
 });
-
-/* FILE UPLOAD */
-const fi=document.getElementById('fattach'),fpEl=document.getElementById('fprev'),
-  fn2El=document.getElementById('fname2'),fclrEl=document.getElementById('fclr');
-fi.addEventListener('change',()=>{
-  if(!fi.files[0])return;
-  if(fi.files[0].size>10*1024*1024){alert('File must be under 10 MB. Please choose a smaller file.');fi.value='';return;}
-  fn2El.textContent=fi.files[0].name+' ('+Math.round(fi.files[0].size/1024)+' KB)';
-  fpEl.classList.add('on');
-});
-fclrEl.addEventListener('click',()=>{fi.value='';fpEl.classList.remove('on');fn2El.textContent='';});
-
-/* CONTACT FORM — Formspree
-   NOTE FOR AHMAD: Go to https://formspree.io, create a free account,
-   add your email ahmad.hassan@unipd.it, and replace YOUR_FORM_ID below
-   with the ID from your dashboard (looks like: xdkewkna) */
+ 
+/* ── CONTACT FORM via Formspree ──
+   SETUP: Visit https://formspree.io → sign up free →
+   create a form → paste your email ahmad.hassan@unipd.it →
+   copy the form ID (e.g. xdkewkna) → replace YOUR_FORM_ID below */
 document.getElementById('cform').addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=document.getElementById('subtn'),msg=document.getElementById('fmsg');
   const words=msgEl.value.trim()===''?0:msgEl.value.trim().split(/\s+/).length;
   if(words>500){msg.className='fmsg err';msg.textContent='Message exceeds 500 words. Please shorten it.';return;}
   if(!document.getElementById('fn').value.trim()||!document.getElementById('fe').value.trim()){
-    msg.className='fmsg err';msg.textContent='Please fill in your name and email.';return;}
+    msg.className='fmsg err';msg.textContent='Please fill in your name and email address.';return;}
   btn.disabled=true;btn.innerHTML='&#x23F3;&nbsp; Sending...';msg.className='fmsg';
   try{
     const fd=new FormData(this);
-    const res=await fetch('https://formspree.io/f/xnjwezkw',{method:'POST',body:fd,headers:{Accept:'application/json'}});
+    const res=await fetch('https://formspree.io/f/YOUR_FORM_ID',{method:'POST',body:fd,headers:{Accept:'application/json'}});
     if(res.ok){
       msg.className='fmsg ok';
-      msg.innerHTML='&#10003;&nbsp;Message sent successfully! Ahmad will reply soon.';
-      this.reset();fpEl.classList.remove('on');wcEl.textContent='0 / 500 words';wcEl.className='wcount';
-    }else{throw new Error('Server error');}
+      msg.innerHTML='&#10003;&nbsp; Message sent! Ahmad will get back to you soon.';
+      this.reset();wcEl.textContent='0 / 500 words';wcEl.className='wcount';
+    }else{throw new Error();}
   }catch{
     msg.className='fmsg err';
-    msg.textContent='Could not send message. Please email ahmad.hassan@unipd.it directly.';}
+    msg.textContent='Could not send. Please email ahmad.hassan@unipd.it directly.';}
   btn.disabled=false;btn.innerHTML='&#x25B6;&nbsp; Send Message';
 });
-
-/* ═══════════════════════════════════════
-   WORLD MAP — D3 Natural Earth projection
-   Kashmir shown as a disputed/neutral zone
-═══════════════════════════════════════ */
+ 
+/* ── WORLD MAP ── */
 const VISITED={
-  'ITA':{name:'Italy',purpose:'Ph.D. at University of Padua · SPRITZ Security Group'},
-  'CHN':{name:'China',purpose:'Research Asst. at SIAT-CAS · M.Sc. at Jiangxi Normal Univ.'},
-  'GBR':{name:'United Kingdom',purpose:'Visits: Univ. of Oxford, Cambridge & Greenwich'},
+  'ITA':{name:'Italy',purpose:'Ph.D. at University of Padua \u00b7 SPRITZ Security Group'},
+  'CHN':{name:'China',purpose:'Research Asst. at SIAT-CAS \u00b7 M.Sc. at Jiangxi Normal Univ.'},
+  'GBR':{name:'United Kingdom',purpose:'General visit: Univ. of Oxford, Cambridge & Greenwich'},
   'NLD':{name:'Netherlands',purpose:'Conference & Lecture at TU Delft'},
-  'SWE':{name:'Sweden',purpose:'Summer School at RISE Stockholm & Jönköping University'},
-  'CHE':{name:'Switzerland',purpose:'General visit to ETH Zürich'},
-  'POL':{name:'Poland',purpose:'General visit, University of Wrocław'},
+  'SWE':{name:'Sweden',purpose:'Summer School at RISE Stockholm & J\u00f6nk\u00f6ping University'},
+  'CHE':{name:'Switzerland',purpose:'General visit to ETH Z\u00fcrich'},
+  'POL':{name:'Poland',purpose:'General visit, University of Wroc\u0142aw'},
   'FIN':{name:'Finland',purpose:'General visit, LUT University'},
   'NOR':{name:'Norway',purpose:'General visit'},
   'DNK':{name:'Denmark',purpose:'General visit'},
@@ -762,10 +753,9 @@ const VISITED={
   'ARE':{name:'UAE',purpose:'General visit'},
   'QAT':{name:'Qatar',purpose:'General visit'},
   'SAU':{name:'Saudi Arabia',purpose:'General visit'},
-  'TUR':{name:'Türkiye',purpose:'General visit'}
+  'TUR':{name:'T\u00fcrkiye',purpose:'General visit'}
 };
-
-/* ISO-3166 numeric -> alpha3 */
+ 
 const N2A3={4:'AFG',8:'ALB',12:'DZA',24:'AGO',32:'ARG',36:'AUS',40:'AUT',31:'AZE',
   50:'BGD',56:'BEL',64:'BTN',68:'BOL',76:'BRA',100:'BGR',108:'BDI',204:'BEN',
   116:'KHM',120:'CMR',124:'CAN',140:'CAF',178:'COG',180:'COD',384:'CIV',170:'COL',
@@ -780,11 +770,10 @@ const N2A3={4:'AFG',8:'ALB',12:'DZA',24:'AGO',32:'ARG',36:'AUS',40:'AUT',31:'AZE
   703:'SVK',705:'SVN',694:'SLE',710:'ZAF',752:'SWE',756:'CHE',762:'TJK',764:'THA',
   626:'TLS',795:'TKM',788:'TUN',792:'TUR',800:'UGA',784:'ARE',826:'GBR',840:'USA',
   858:'URY',860:'UZB',862:'VEN',704:'VNM',887:'YEM',894:'ZMB',716:'ZWE',156:'CHN',
-  484:'MEX',858:'URY',454:'MWI',686:'SEN',760:'SYR',807:'MKD',498:'MDA',112:'BLR',
+  484:'MEX',454:'MWI',686:'SEN',760:'SYR',807:'MKD',498:'MDA',112:'BLR',
   440:'LTU',428:'LVA',233:'EST',643:'RUS',804:'UKR',688:'SRB',70:'BIH',499:'MNE',
-  8:'ALB',196:'CYP',470:'MLT',352:'ISL',372:'IRL',442:'LUX',438:'LIE',492:'MCO',
-  674:'SMR',336:'VAT',20:'AND',60:'BMU'};
-
+  196:'CYP',470:'MLT',352:'ISL',372:'IRL',442:'LUX',20:'AND'};
+ 
 fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 .then(r=>r.json())
 .then(world=>{
@@ -796,25 +785,21 @@ fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
   const borders=topojson.mesh(world,world.objects.countries,(a,b)=>a!==b);
   const tt=document.getElementById('mtt');
   const mw=document.querySelector('.mapwrap');
-
-  /* ocean sphere */
+ 
   svg.append('path').datum({type:'Sphere'}).attr('d',pathGen)
-    .attr('fill','#020a06').attr('stroke','rgba(0,245,160,.1)').attr('stroke-width',.8);
-
-  /* graticule */
+    .attr('fill','#020a06').attr('stroke','rgba(0,245,160,.12)').attr('stroke-width',.9);
   svg.append('path').datum(d3.geoGraticule()()).attr('d',pathGen)
-    .attr('fill','none').attr('stroke','rgba(0,245,160,.035)').attr('stroke-width',.4);
-
-  /* countries */
+    .attr('fill','none').attr('stroke','rgba(0,245,160,.04)').attr('stroke-width',.4);
+ 
   svg.append('g').selectAll('path').data(feats).join('path')
-    .attr('d',pathGen)
-    .attr('class',d=>{
-      const a3=N2A3[+d.id];
-      return a3&&VISITED[a3]?'visited':'land';
+    .attr('d',d=>{
+      /* Kashmir: clip out the disputed region from India & Pakistan paths
+         by rendering the country path and then overlaying neutral zone */
+      return pathGen(d);
     })
+    .attr('class',d=>{const a3=N2A3[+d.id];return a3&&VISITED[a3]?'visited':'land';})
     .on('mouseenter',function(ev,d){
-      const a3=N2A3[+d.id];
-      if(!a3||!VISITED[a3])return;
+      const a3=N2A3[+d.id];if(!a3||!VISITED[a3])return;
       const v=VISITED[a3];
       tt.innerHTML='<div class="mname">'+v.name+'</div><div class="mpurp">'+v.purpose+'</div>';
       tt.classList.add('show');
@@ -827,30 +812,31 @@ fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
       tt.style.left=x+'px';tt.style.top=y+'px';
     })
     .on('mouseleave',function(ev,d){
-      const a3=N2A3[+d.id];
-      if(a3&&VISITED[a3])tt.classList.remove('show');
+      const a3=N2A3[+d.id];if(a3&&VISITED[a3])tt.classList.remove('show');
     });
-
-  /* borders */
+ 
   svg.append('path').datum(borders).attr('d',pathGen)
     .attr('fill','none').attr('stroke','#0d2a18').attr('stroke-width',.35);
-
-  /* ── KASHMIR DISPUTED OVERLAY ──
-     Draw a neutral grey polygon over the Kashmir region so it is
-     not attributed to either India or Pakistan */
-  const kashmirCoords=[
-    [73.9,37.1],[74.5,36.8],[76.0,36.2],[77.8,35.5],[79.0,34.8],
-    [78.4,34.0],[77.0,33.2],[75.5,32.8],[74.0,32.5],[73.0,33.2],
-    [72.6,34.2],[73.2,35.5],[73.9,37.1]
-  ];
-  const kashmirGeo={type:'Feature',geometry:{type:'Polygon',coordinates:[kashmirCoords]}};
-  svg.append('path').datum(kashmirGeo).attr('d',pathGen)
-    .attr('fill','#1a2a1e').attr('stroke','#2a4a30').attr('stroke-width',.5)
-    .attr('stroke-dasharray','2,2').style('cursor','default')
-    .append('title').text('Kashmir (Disputed Region)');
-
-  /* visited dots */
-  const visitedCentroids={
+ 
+  /* Kashmir disputed zone — neutral overlay so it's not shown as part of India or Pakistan */
+  const kashmir={type:'Feature',geometry:{type:'Polygon',coordinates:[[
+    [74.0,37.0],[75.5,36.7],[77.2,35.8],[78.5,35.0],[79.2,34.3],
+    [78.3,33.8],[76.8,33.0],[75.2,32.6],[73.8,32.4],[72.8,33.0],
+    [72.4,34.0],[72.9,35.3],[73.8,36.5],[74.0,37.0]
+  ]]}};
+  svg.append('path').datum(kashmir).attr('d',pathGen)
+    .attr('fill','#111f15').attr('stroke','#1e3d24')
+    .attr('stroke-width',.6).attr('stroke-dasharray','3,2')
+    .style('pointer-events','none');
+  svg.append('text')
+    .attr('x',()=>{const[px]=proj([76.0,34.8]);return px;})
+    .attr('y',()=>{const[,py]=proj([76.0,34.8]);return py;})
+    .attr('text-anchor','middle').attr('font-size','6px')
+    .attr('fill','rgba(0,245,160,.35)').attr('font-family','IBM Plex Mono,monospace')
+    .text('Disputed');
+ 
+  /* green dots on visited countries */
+  const centroids={
     'ITA':[12.5674,41.8719],'CHN':[104.1954,35.8617],'GBR':[-3.4360,55.3781],
     'NLD':[5.2913,52.1326],'SWE':[18.6435,60.1282],'CHE':[8.2275,46.8182],
     'POL':[19.1451,51.9194],'FIN':[25.7482,61.9241],'NOR':[8.4689,60.4720],
@@ -859,16 +845,20 @@ fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
     'THA':[100.9925,15.8700],'ARE':[53.8478,23.4241],'QAT':[51.1839,25.3548],
     'SAU':[45.0792,23.8859],'TUR':[35.2433,38.9637]
   };
-  Object.entries(visitedCentroids).forEach(([a3,[lon,lat]])=>{
+  Object.entries(centroids).forEach(([a3,[lon,lat]])=>{
     const [px,py]=proj([lon,lat]);
-    svg.append('circle').attr('cx',px).attr('cy',py).attr('r',3.5)
-      .attr('fill','var(--green)').attr('opacity',.85)
-      .attr('stroke','rgba(5,8,15,.6)').attr('stroke-width',1);
+    svg.append('circle').attr('cx',px).attr('cy',py).attr('r',4)
+      .attr('fill','var(--green)').attr('opacity',.9)
+      .attr('stroke','rgba(5,8,15,.7)').attr('stroke-width',1.2)
+      .style('pointer-events','none');
+    svg.append('circle').attr('cx',px).attr('cy',py).attr('r',7)
+      .attr('fill','none').attr('stroke','var(--green)').attr('opacity',.3)
+      .attr('stroke-width',.8).style('pointer-events','none');
   });
 })
 .catch(()=>{
   document.querySelector('.mapwrap').innerHTML=
-    '<div style="padding:3rem 2rem;text-align:center;font-family:IBM Plex Mono,monospace;font-size:.75rem;color:#475569;">Map requires an internet connection to load.</div>';
+    '<div style="padding:3rem;text-align:center;font-family:IBM Plex Mono,monospace;font-size:.75rem;color:#475569;">Map requires an internet connection to load.</div>';
 });
 </script>
 </body>
